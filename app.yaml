@@ -3,7 +3,6 @@ env: flex
 entrypoint: gunicorn -b :$PORT run:app
 
 handlers:
-# Matches requests to /images/... to files in static/images/...
 - url: /profile_pics
   static_dir: static/profile_pics
 
