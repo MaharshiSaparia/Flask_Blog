@@ -1,5 +1,6 @@
 from flaskblog import create_app
 from flaskblog import db
+from gevent.pywsgi import WSGIServer
 
 app = create_app()
 
@@ -10,4 +11,7 @@ def create_tables():
 
 
 if __name__ == '__main__':
-    app.run()
+    # Debug Development
+    # app.run(debug=True)
+    http_server = WSGIServer(('', 5000), app)
+    http_server.serve_forever()
